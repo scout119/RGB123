@@ -456,7 +456,10 @@ void rotateRight()
 	{
 		delete fallingPiece;
 		fallingPiece = rotated;
-	}
+	}else
+        {
+          delete rotated;
+        }
 }
 
 /// <summary>
@@ -470,7 +473,10 @@ void rotateLeft()
 	{
 		delete fallingPiece;
 		fallingPiece = rotated;
-	}
+	}else
+        {
+          delete rotated;
+        }
 }
 
 /// <summary>
