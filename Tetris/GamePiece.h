@@ -20,6 +20,8 @@ class GamePiece
 public:
 	GamePiece(uint8_t rows, uint8_t columns, uint8_t * inputArray = NULL);
 	GamePiece(const GamePiece& copyFrom);
+	~GamePiece();
+
 	GamePiece * rotateLeft();
 	GamePiece * rotateRight();
 	uint8_t& operator() (const int rowIndex, const int columnIndex);
@@ -28,6 +30,7 @@ public:
 	uint8_t Columns;
 private:
 
+        boolean _freeData;
 	uint8_t * _data;  
 };
 

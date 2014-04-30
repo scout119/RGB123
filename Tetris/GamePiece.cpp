@@ -14,22 +14,36 @@
 
 GamePiece::GamePiece(uint8_t rows, uint8_t columns, uint8_t * inputArray)
 {
+        _freeData = true;
 	this->Rows = rows; 
 	this->Columns = columns;
 	if( !inputArray )
+        {
 		this->_data = (uint8_t*)malloc(rows * columns);
+        }
 	else
+        {
 		this->_data = inputArray;
+                _freeData = false;
+        }
 }
 
 GamePiece::GamePiece(const GamePiece& copyFrom)
 {
+        _freeData = true;
 	this->Rows = copyFrom.Rows;
 	this->Columns = copyFrom.Columns;
 
 	this->_data = (uint8_t*)malloc(Rows * Columns);
 	memcpy(this->_data, copyFrom._data, Rows*Columns);
 }
+
+GamePiece::~GamePiece()
+{
+  if( _freeData )
+    free(this->_data);
+}
+
 uint8_t& GamePiece::operator()(const int rowIndex, const int columnIndex)
 {
 	return _data[rowIndex*Columns+columnIndex];

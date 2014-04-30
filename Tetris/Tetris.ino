@@ -348,7 +348,7 @@ void newPiece()
 
 	if (nextPiece == NULL)
 	{
-		next = random(100) % 7;
+		next = random(100) % 7;  
 		nextPiece = &_gamePieces[next];
 	}
 
